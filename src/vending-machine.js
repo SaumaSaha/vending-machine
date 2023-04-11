@@ -6,13 +6,20 @@ const getRemainingAmount = function (amount ,denomination) {
   return amount % denomination;
 }
 
+const getDenominations = function (count) {
+  const denominations = [10, 5, 2, 1];
+  return denominations[count];
+}
+
 const  coinsToDispense = function (rupees) {
-  const fiveRupeesCoins = calculateNoOfCoinsOf(rupees, 5);
-  let remainingAmount = getRemainingAmount(rupees, 5);
-  const twoRupeesCoins = calculateNoOfCoinsOf(remainingAmount, 2);
-  remainingAmount = getRemainingAmount(remainingAmount, 2);
-  const oneRupeeCoins = calculateNoOfCoinsOf(remainingAmount, 1);
-  return  fiveRupeesCoins + twoRupeesCoins + oneRupeeCoins;
+  let totalCoins = 0;
+  let remainingAmount = rupees;
+  for (let count = 0; count < 4; count++) {
+    const noOfCoins = calculateNoOfCoinsOf(remainingAmount, getDenominations(count));
+    remainingAmount = getRemainingAmount(remainingAmount, getDenominations(count));
+    totalCoins += noOfCoins;
+  }
+  return totalCoins; 
 }
 
 exports.coinsToDispense = coinsToDispense;
