@@ -1,5 +1,5 @@
-const  test = function () {
-  return 1;
+const  coinsDispensed = function (rupees) {
+  return rupees;
 }
 
-exports.test = test;
+exports.coinsDispensed = coinsDispensed;

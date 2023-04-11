@@ -2,10 +2,10 @@ const vendingMachine = require('../src/vending-machine.js');
 const testing = require('../lib/testing.js');
 
 const assert = testing.assertTest;
-const test = vendingMachine.test;
 const displayTestLog = testing.displayTestLog;
+const coinsDispensed = vendingMachine.coinsDispensed;
 
-assert(test(), 1, "Test Passes", "demoTest");
-assert(test(), 0, "Test Fails", "demoTest" );
+assert(coinsDispensed(0), 0, "0 rupees should return 0 coins", "coinsDispensed()");
+assert(coinsDispensed(1), 1, "1 rupees should return 0 coins", "coinsDispensed()");
 
 displayTestLog();
