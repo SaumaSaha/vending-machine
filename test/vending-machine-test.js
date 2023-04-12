@@ -17,6 +17,7 @@ const testCoinsToDispense = function () {
   assert(2, dispenseCoins(12, [1, 2, 5, 10]), "12 rupees with [1, 2, 5, 10] denominations should return 2 coins", "dispenseCoins()");
   assert(4, dispenseCoins(18, [1, 2, 5, 10]), "18 rupees with [1, 2, 5, 10] denominations should return 4 coins", "dispenseCoins()");
   assert(4, dispenseCoins(13, [1, 2, 5]), "13 rupees with [1, 2, 5] denominations should give 4 coins", "dispenseCoins()");
+  assert(4, dispenseCoins(13, [1, 4, 7]), "13 rupees with [1, 4, 7] denominations should give 4 coins", "dispenseCoins()");
 }
 
 
