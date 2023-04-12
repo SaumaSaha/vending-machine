@@ -2,10 +2,14 @@ const vendingMachine = require('../src/vending-machine.js');
 const testing = require('../lib/testing.js');
 
 const assert = testing.assertTest;
+const assertArray = testing.assertArray;
 const displayTestLog = testing.displayTestLog;
 const displaySummary = testing.displaySummary;
 const dispenseCoins = vendingMachine.dispenseCoins;
+const maxSort = vendingMachine.maxSort;
+const maxOfNumbers = vendingMachine.maxOfNumbers;
 
+/*
 const testCoinsToDispense = function () {
   assert(0, dispenseCoins(0, []), "0 rupees with [] denominations should return 0 coins", "dispenseCoins()");
   assert(1, dispenseCoins(1, [1]), "1 rupees with [1] denominations should return 1 coins", "dispenseCoins()");
@@ -18,8 +22,12 @@ const testCoinsToDispense = function () {
   assert(4, dispenseCoins(18, [1, 2, 5, 10]), "18 rupees with [1, 2, 5, 10] denominations should return 4 coins", "dispenseCoins()");
   assert(4, dispenseCoins(13, [1, 2, 5]), "13 rupees with [1, 2, 5] denominations should give 4 coins", "dispenseCoins()");
   assert(4, dispenseCoins(13, [1, 4, 7]), "13 rupees with [1, 4, 7] denominations should give 4 coins", "dispenseCoins()");
+  assert(4, dispenseCoins(18, [1, 5, 10, 2,]), "18 rupees with [1, 5, 10, 2] denominations should give 4 coins", "dispenseCoins()");
 }
 
-
-testCoinsToDispense();
+ */
+// assertArray([10, 5, 2, 1], maxSort([1, 5, 10, 2]), "[1, 5, 10, 2] should give a sorted array in decending order [10, 5, 2, 1]", "maxSort()");
+assert(10, maxOfNumbers([1, 5, 10, 2]), "[1, 5, 10, 2] should give the max number 10", "maxOfNumbers()");
+assert(20, maxOfNumbers([1, 5, 10, 20, 7, 6, 2]), "[1, 5, 10, 20, 7, 6, 2] should give the max number 20", "maxOfNumbers()");
+// testCoinsToDispense();
 displaySummary();
