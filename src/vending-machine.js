@@ -23,8 +23,15 @@ const maxOfNumbers = function (numbers) {
 }
 
 const maxSort = function (array) {
-  const tempArray = array.slice(0);
-  return tempArray;
+  let tempArray = array.slice(0);
+  const sortedArray = [];
+  for (const index in array) {
+    const max = maxOfNumbers(tempArray);
+    const maxIndex = tempArray.indexOf(max);
+    tempArray = tempArray.slice(0,maxIndex).concat(tempArray.slice(maxIndex + 1));
+    sortedArray[index] = max;
+  }
+  return sortedArray;
 }
 
 const getDenominationsInReverse = function (denominations) {
