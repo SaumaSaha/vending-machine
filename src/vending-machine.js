@@ -1,26 +1,6 @@
-const maxOfTwo = function (number1, number2) {
-  return number1 > number2 ? number1 : number2;
-}
+const sort = require('../lib/sort.js');
 
-const maxOfNumbers = function (numbers) {
-  let max = numbers[0];
-  for (const number of numbers) {
-    max = maxOfTwo(max, number);
-  }
-  return max
-}
-
-const maxSort = function (array) {
-  let tempArray = array.slice();
-  const sortedArray = [];
-  for (const index in array) {
-    const max = maxOfNumbers(tempArray);
-    const maxIndex = tempArray.indexOf(max);
-    tempArray.splice(maxIndex,1);
-    sortedArray.push(max);
-  }
-  return sortedArray;
-}
+const maxSort = sort.maxSort;
 
 const calculateNoOfCoinsOf = function (amount, denomination) {
   return Math.floor(amount / denomination);
@@ -57,6 +37,4 @@ const getCoinsByAmount = function (rupees, denominations) {
 }
 
 exports.dispenseCoins = dispenseCoins;
-exports.maxSort = maxSort;
-exports.maxOfNumbers = maxOfNumbers;
 exports.getCoinsByAmount = getCoinsByAmount;
