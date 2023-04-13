@@ -10,31 +10,28 @@ const getRemainingAmount = function (amount ,denomination) {
   return amount % denomination;
 }
 
-const  dispenseCoins = function (rupees, denominations) {
+const  vendCoins = function (rupees, denominations) {
   let totalCoins = 0;
+  const coins = vendCoinsByDenominations(rupees, denominations);
+  for (const coin in coins) {
+    totalCoins += coins[coin];
+  }
+
+  return totalCoins;
+}
+
+const vendCoinsByDenominations = function (rupees, denominations) {
   let remainingAmount = rupees;
+  let coinsCount = {};
   const sortedDenominations = maxSort(denominations);
 
   for (denomination of sortedDenominations) {
     const noOfCoins = calculateNoOfCoinsOf(remainingAmount, denomination);
     remainingAmount = getRemainingAmount(remainingAmount, denomination);
-    totalCoins += noOfCoins;
+    coinsCount[denomination] = noOfCoins;
   }
-  return totalCoins; 
+  return coinsCount; 
 }
 
-const getCoinsByAmount = function (rupees, denominations) {
-  let remainingAmount = rupees;
-  let denominationObject = {};
-  const sortedDenominations = maxSort(denominations);
-
-  for (denomination of sortedDenominations) {
-    const noOfCoins = calculateNoOfCoinsOf(remainingAmount, denomination);
-    remainingAmount = getRemainingAmount(remainingAmount, denomination);
-    denominationObject[denomination] = noOfCoins;
-  }
-  return denominationObject; 
-}
-
-exports.dispenseCoins = dispenseCoins;
-exports.getCoinsByAmount = getCoinsByAmount;
+exports.vendCoins = vendCoins;
+exports.vendCoinsByDenominations = vendCoinsByDenominations;
