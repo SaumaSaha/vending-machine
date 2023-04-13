@@ -5,11 +5,13 @@ const assert = testing.assertTest;
 const assertArray = testing.assertArray;
 const displayTestLog = testing.displayTestLog;
 const displaySummary = testing.displaySummary;
+const displayHeader = testing.displayHeader;
 const dispenseCoins = vendingMachine.dispenseCoins;
 const maxSort = vendingMachine.maxSort;
 const maxOfNumbers = vendingMachine.maxOfNumbers;
 
 const testCoinsToDispense = function () {
+  displayHeader("Coins To Dispense");
   assert(0, dispenseCoins(0, []), "0 rupees with [] denominations should return 0 coins", "dispenseCoins()");
   assert(1, dispenseCoins(1, [1]), "1 rupees with [1] denominations should return 1 coins", "dispenseCoins()");
   assert(1, dispenseCoins(2, [1, 2]), "2 rupees with [1, 2] denominations should return 1 coins", "dispenseCoins()");
@@ -25,16 +27,18 @@ const testCoinsToDispense = function () {
 }
 
 const testMaxOFNumbers = function () {
+  displayHeader("Max of Numbers");
   assert(10, maxOfNumbers([1, 5, 10, 2]), "[1, 5, 10, 2] should give the max number 10", "maxOfNumbers()");
   assert(20, maxOfNumbers([1, 5, 10, 20, 7, 6, 2]), "[1, 5, 10, 20, 7, 6, 2] should give the max number 20", "maxOfNumbers()");
 }
 
 const testMaxSort = function () {
+  displayHeader("Max Sort");
   assertArray([10, 5, 2, 1], maxSort([1, 5, 10, 2]), "[1, 5, 10, 2] should give a sorted array in decending order [10, 5, 2, 1]", "maxSort()");
   assertArray([20, 10, 9, 5, 2, 1], maxSort([1, 20, 5, 9, 10, 2]), "[1, 5, 10, 2] should give a sorted array in decending order [10, 5, 2, 1]", "maxSort()");
 }
 
 testCoinsToDispense();
 testMaxOFNumbers();
-testMaxOFNumbers();
+testMaxSort();
 displaySummary();

@@ -1,21 +1,29 @@
+const maxOfTwo = function (number1, number2) {
+  return number1 > number2 ? number1 : number2;
+}
+
+const removeElementAt = function (index, list) {
+  let tempArray = list.slice();
+  tempArray = tempArray.slice(0,index).concat(tempArray.slice(index + 1));
+  return tempArray;
+}
+
 const maxOfNumbers = function (numbers) {
   let max = numbers[0];
   for (const number of numbers) {
-    if (max < number) {
-      max = number;
-    }
+    max = maxOfTwo(max, number);
   }
   return max
 }
 
 const maxSort = function (array) {
-  let tempArray = array.slice(0);
+  let tempArray = array.slice();
   const sortedArray = [];
   for (const index in array) {
     const max = maxOfNumbers(tempArray);
     const maxIndex = tempArray.indexOf(max);
-    tempArray = tempArray.slice(0,maxIndex).concat(tempArray.slice(maxIndex + 1));
-    sortedArray[index] = max;
+    tempArray = removeElementAt(maxIndex, tempArray);
+    sortedArray.push(max);
   }
   return sortedArray;
 }
