@@ -1,17 +1,3 @@
-/*
-const sortInDecending = function (numbers) {
-  const sortediList = numbers.slice(0);
-  for (const index in sorted) {
-    if (sortediList[index] < sortediList[index + 1]) {
-      const temp = sortediList[index];
-      sortediList[index] = sortediList[index + 1];
-      sortediList[index + 1] = temp;
-    }
-  }
-  return sortediList;
-}
-
- */
 const maxOfNumbers = function (numbers) {
   let max = numbers[0];
   for (const number of numbers) {
@@ -32,10 +18,6 @@ const maxSort = function (array) {
     sortedArray[index] = max;
   }
   return sortedArray;
-}
-
-const getDenominationsInReverse = function (denominations) {
-  return denominations.slice(0).reverse();
 }
 
 const calculateNoOfCoinsOf = function (amount, denomination) {
