@@ -4,7 +4,7 @@ const maxOfTwo = function (number1, number2) {
 
 const removeElementAt = function (index, list) {
   let tempArray = list.slice();
-  tempArray = tempArray.slice(0,index).concat(tempArray.slice(index + 1));
+  tempArray.splice(index,1);
   return tempArray;
 }
 
