@@ -2,12 +2,6 @@ const maxOfTwo = function (number1, number2) {
   return number1 > number2 ? number1 : number2;
 }
 
-const removeElementAt = function (index, list) {
-  let tempArray = list.slice();
-  tempArray.splice(index,1);
-  return tempArray;
-}
-
 const maxOfNumbers = function (numbers) {
   let max = numbers[0];
   for (const number of numbers) {
@@ -22,7 +16,7 @@ const maxSort = function (array) {
   for (const index in array) {
     const max = maxOfNumbers(tempArray);
     const maxIndex = tempArray.indexOf(max);
-    tempArray = removeElementAt(maxIndex, tempArray);
+    tempArray.splice(maxIndex,1);
     sortedArray.push(max);
   }
   return sortedArray;
@@ -49,6 +43,20 @@ const  dispenseCoins = function (rupees, denominations) {
   return totalCoins; 
 }
 
+const getCoinsByAmount = function (rupees, denominations) {
+  let remainingAmount = rupees;
+  let denominationObject = {};
+  const sortedDenominations = maxSort(denominations);
+
+  for (denomination of sortedDenominations) {
+    const noOfCoins = calculateNoOfCoinsOf(remainingAmount, denomination);
+    remainingAmount = getRemainingAmount(remainingAmount, denomination);
+    denominationObject[denomination] = noOfCoins;
+  }
+  return denominationObject; 
+}
+
 exports.dispenseCoins = dispenseCoins;
 exports.maxSort = maxSort;
 exports.maxOfNumbers = maxOfNumbers;
+exports.getCoinsByAmount = getCoinsByAmount;
